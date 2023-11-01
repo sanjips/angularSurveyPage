@@ -80,4 +80,13 @@ export class AccountService {
                 return x;
             }));
     }
+
+
+    saveParticipants(data:any):Observable<any>{
+        return this.http.post(`${environment.apiUrl}/participants`,data);
+      }
+    
+      getParticipantsList():Observable<any>{
+        return this.http.get(`${environment.apiUrl}/participants`);
+      }
 }

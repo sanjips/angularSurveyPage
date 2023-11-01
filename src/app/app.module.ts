@@ -33,12 +33,15 @@ import { ProgressbarModule,ProgressbarConfig } from 'ngx-bootstrap/progressbar';
 import { RatingModule, RatingConfig } from 'ngx-bootstrap/rating';
 import { SortableModule, DraggableItemService } from 'ngx-bootstrap/sortable';
 import { TabsModule, TabsetConfig } from 'ngx-bootstrap/tabs';
+//import { SearchPipe } from 'src/search.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
   LoginComponent,
   AlertComponent,
-  HomeComponent
+  HomeComponent,
+  //SearchPipe
   ],
   imports: [
     RouterModule,

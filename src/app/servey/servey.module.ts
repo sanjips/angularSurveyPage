@@ -17,6 +17,8 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
 import { BrowserModule } from "@angular/platform-browser";
 import { ServeyComponent } from './servey.component';
+import { SearchPipe } from 'src/search.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
     imports: [
         ReactiveFormsModule,
@@ -25,11 +27,14 @@ import { ServeyComponent } from './servey.component';
         TabsModule.forRoot(),
         CommonModule,
         FormsModule,
-       //BrowserModule
+        NgxPaginationModule
+       //BrowserModule,
+       
 
     ],
     declarations: [
-        ServeyComponent
+        ServeyComponent,
+        SearchPipe
       ],
     
     
@@ -39,6 +44,7 @@ import { ServeyComponent } from './servey.component';
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA,
         NO_ERRORS_SCHEMA
-      ]
+      ],
+      providers:[SearchPipe]
 })
 export class ServeyModule { }

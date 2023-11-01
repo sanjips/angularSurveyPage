@@ -418,13 +418,220 @@
           <ng-template tabHeading>
             <span title="Restore mobile">Audience</span>
           </ng-template>
-          <p> Restore2 mobile </p>
+            
+
+          <h3>Please click on the below button open popup</h3> 
+          <hr /> 
+           <button
+            style="margin: 50px; padding: 10px"
+            type="button"
+            class="btn btn-primary"
+            (click)="openPopup()">Add particpant
+          </button> 
+          <div
+            class="modal"
+            tabindex="-1"
+            role="dialog"
+            [ngStyle]="{'display':displayStyle}"> 
+            <div class="modal-dialog"  role="document"> 
+              <div class="modal-content" > 
+                <div class="modal-header"> 
+                  <h4 class="modal-title">Add particpant</h4> 
+                </div> 
+                <div class="modal-body"> 
+                  <div class="top-search">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                    </div>
+                    <input class="form-control" type="text" 
+                        placeholder="Search by employee id, name, email or phone"
+                        name="search" [(ngModel)]="searchText">
+                    <div class="filter">
+                        <i class="fa fa-filter"></i>
+                    </div>
+                </div>
+                <!-- <div class="col-auto">
+                  <select name="noOfRows" (change)="onTableSizeChange($event)" class="form-select form-select-sm">
+                    <option *ngFor="let size of tableSize" [ngValue]="size">
+                      {{ size }}
+                    </option>
+                  </select>
+                </div> -->
+               <form #addParticipants="ngForm" class="common-form">
+               
+                  <div class="clsDisplaying">
+                      Displaying {{noOfParticipant}} employee...
+                  </div>
+                  <table class="table">
+                      <thead>        
+                        <tr>           
+                          <th scope="col">
+                              <input class="form-check-input" 
+                              name="all"                  
+                              [checked]="isAllSelected()" 
+                              (change)="selectAll($event)"
+                              type="checkbox">
+                          </th>
+                          <th scope="col">EMPLOYEEID</th>
+                          <th scope="col">NAME</th>
+                          <th scope="col">TEAM</th>
+                          <th scope="col">LOCATION</th>
+                          <th scope="col">REPORTING TO</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngIf="participantData">
+                        <tr *ngFor="let item of participantData | search: searchText | paginate : config;  index as i;"
+                      
+                        >
+                          <td>
+                              <input class="form-check-input"
+                              type="checkbox"
+                              name="checkbox_{{i}}" 
+                              id="checkbox_{{i}}"                 
+                              [checked]="item.checked"
+                              [(ngModel)]="item.checked"
+                              (change)="onCheckboxChange()"
+                              >
+                          </td>
+                          <td>{{item.id}}</td>
+                          <td>{{item.name}}</td>
+                          <td>{{item.team}}</td>
+                          <td>{{item.location}}</td>
+                          <td>{{item.reporting}}</td>
+                        </tr>
+                      
+                      </tbody>
+                    </table>
+                    <!-- <pagination-controls
+                    previousLabel="Prev"
+                    nextLabel="Next"
+                    (pageChange)="onTableDataChange($event)"></pagination-controls> -->
+                    <pagination-controls id="basicPaginate" (pageChange)="pageChanged($event)"></pagination-controls>
+
+                    <div>
+                      <button class="btn btn-primary" (click)="onButtonClick()">Save</button>
+                    </div>
+                </form>
+            
+                </div> 
+                <div class="modal-footer"> 
+                  <button type="button" class="btn btn-danger" 
+                          (click)="closePopup()"> 
+                    Close 
+                  </button> 
+                </div> 
+              </div> 
+            </div> 
+          </div>
+            
+            <!-- <div class="container p-5">
+              <div class="clsBtnClose">
+                  <h6>ADD PARTICIPANTS</h6>
+                  <button type="button" (click)="popUpClose()" class="btn-close btnclsPopUp" aria-label="Close"></button>
+              </div>
+             <hr>
+              <div class="top-search">
+                  <div class="search">
+                      <i class="fa fa-search"></i>
+                  </div>
+                  <input class="form-control" type="text" 
+                      placeholder="Search by employee id, name, email or phone"
+                      name="search" [(ngModel)]="searchText">
+                  <div class="filter">
+                      <i class="fa fa-filter"></i>
+                  </div>
+              </div>
+             <form #addParticipants="ngForm" class="common-form">
+             
+                <div class="clsDisplaying">
+                    Displaying {{noOfParticipant}} employee...
+                </div>
+                <table class="table">
+                    <thead>        
+                      <tr>           
+                        <th scope="col">
+                            <input class="form-check-input" 
+                            name="all"                  
+                            [checked]="isAllSelected()" 
+                            (change)="selectAll($event)"
+                            type="checkbox">
+                        </th>
+                        <th scope="col">EMPLOYEEID</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">TEAM</th>
+                        <th scope="col">LOCATION</th>
+                        <th scope="col">REPORTING TO</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngIf="participantData">
+                      <tr *ngFor="let item of participantData | search: searchText let i=index ">
+                        <td>
+                            <input class="form-check-input"
+                            type="checkbox"
+                            name="checkbox_{{i}}" 
+                            id="checkbox_{{i}}"                 
+                            [checked]="item.checked"
+                            [(ngModel)]="item.checked"
+                            (change)="onCheckboxChange()"
+                            >
+                        </td>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.team}}</td>
+                        <td>{{item.location}}</td>
+                        <td>{{item.reporting}}</td>
+                      </tr>
+                    
+                    </tbody>
+                  </table>
+          
+                  <div>
+                    <button class="btn btn-primary" (click)="onButtonClick()">Save</button>
+                  </div>
+              </form>
+          </div>   -->
+
+
+
+
         </tab>
         <tab id="3">
         <ng-template tabHeading>
           <span title="Restore mobile">Setting</span>
         </ng-template>
-        <p> Restore3 mobile </p>
+<h4>WHEN DO YOU WANT TO END THIS SURVEY</h4><BR/>
+<input type="date" width="200" class="form-control">
+<BR/>
+<BR/>
+<!-- <input type="text" formControlName="firstName" class="form-control" /> -->
+                  <!-- <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                      <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                  </div> -->
+  <h4>
+    EMAIL TEMPLATE 
+
+</h4>
+<span>
+  select the required template to be sent launch and remainder notification<br/>
+
+
+
+</span><BR/>
+<input type="text" width="200" class="form-control" placeholder="CULTURE MONKEY DEFAULT">
+Send a test Email
+
+  
+
+<br/>
+<br/>
+<br/>
+<h4>
+  LAUNCH TEMPLATE 
+
+</h4>
+<br/>
+This template will be used for the survey launch e-mail
+
       </tab>
         </tabset>
       </ng-container>
