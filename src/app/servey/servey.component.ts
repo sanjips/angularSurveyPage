@@ -82,10 +82,14 @@ public isCollapsed :boolean= false;
         {id:15,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
         {id:16,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
         {id:17,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
-        {id:19,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'}
+        {id:19,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'},
       
       
       
+        {id:20,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
+        {id:21,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
+        {id:22,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
+        {id:23,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'}
       
       ]
       this.currentItemsToShow = this.participantData;
