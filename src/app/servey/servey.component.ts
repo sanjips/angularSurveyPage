@@ -19,7 +19,7 @@ export class ServeyComponent implements OnInit,PagingConfig {
   participantData:any;
   btnClose=faClose;
 
-  noOfParticipant:number=0;
+  noOfParticipant:any;
   searchText:'';
   multiSelect: boolean = false;
   selectedData:any;
@@ -62,14 +62,11 @@ public isCollapsed :boolean= false;
         private alertService: AlertService,
         
     ) {
-      
       this.participantData=[
-          
         {id:1,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
         {id:2,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
         {id:3,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
         {id:4,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'},
-
         {id:5,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
         {id:6,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
         {id:7,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
@@ -78,28 +75,23 @@ public isCollapsed :boolean= false;
         {id:12,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
         {id:13,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
         {id:14,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'},
-
         {id:15,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
         {id:16,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
         {id:17,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
         {id:19,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'},
-      
-      
-      
         {id:20,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
         {id:21,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
         {id:22,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
         {id:23,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'},
-
-        
-      
         {id:24,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
         {id:25,team:'RAJAN',name:'sanjip',location:'gurgaon',reporting:'ss'},
         {id:26,team:'SORAV',name:'sanjip',location:'gurgaon',reporting:'suraj'},
         {id:27,team:'SANJ',name:'sanjip',location:'gurgaon',reporting:'rajan'}
       
       ]
-      this.currentItemsToShow = this.participantData;
+     
+     this.participantList()
+     /// this.currentItemsToShow = this.participantData;
       this.config = {
         id: 'basicPaginate',
         itemsPerPage: 5,
@@ -222,12 +214,8 @@ updateNext(){
     debugger
      this.accountService.getParticipantsList().subscribe((result)=>{
        console.log("service data::",result);    
-       this.participantData = result; 
-      //  this.participantData=[{id:1,team:'sanjip',name:'sanjip',location:'gurgaon',reporting:'sorve'},
-      //  {'id':2,'team':'sanjip','name':'sanjip','location':'gurgaon','reporting':'sorve'},
-      //  {'id':3,'team':'sanjip','name':'sanjip','location':'gurgaon','reporting':'sorve'}
-      // ]
-       this.noOfParticipant = result.length;
+       //this.participantData = result; 
+       this.noOfParticipant = this.participantData.length;
      })
   }
 
